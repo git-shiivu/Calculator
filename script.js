@@ -1,46 +1,47 @@
+const input = document.querySelectorAll(".input");
 const values = document.querySelector("#values");
+const equalTo = document.querySelector("#equalTo");
+const CLR = document.querySelector("#CLR");
+const DEL = document.querySelector("#DEL");
 
-const typePad = document.querySelectorAll(".numbers");
-const operations = document.querySelectorAll("operation")
+// Show the value in Display.
+let display = "";
 
-const equalTo = document.querySelector("#equalTo").innerText
-let add = false, subtract = false, multiply = false, devision = false;
-
-let input = 0;
-
-typePad.forEach(button => {
-    button.addEventListener('click', () => {
-    input += parseInt(button.innerText);
-    values.innerText = button.innerText
-
-})
-
+// Input the values in Display.
+input.forEach((input) => {
+  input.addEventListener("click", () => {
+    display += input.innerText;
+    if (input.innerText == "x") {
+      display.replace("x", "*");
+    }
+    values.innerText = display;
+  });
 });
 
-operations.forEach(button => {
-    button.addEventListener('click', () => {
-    
-        if(button.innerText == "+"){
-            console.log(button.innerText);
-            
-            add = true
-            values.innerText += button.innerText;
-        }
-        if(button.innerText == "-"){
-            subtract = true
-            values.innerText += button.innerText;
-        }
-        if(button.innerText == "x"){
-            multiply = true
-            values.innerText += button.innerText;
-        }
-        if(button.innerText == "/"){
-            devision = true
-            values.innerText += button.innerText;
-        }
-
-})
-
+// For Calculation.
+equalTo.addEventListener("click", () => {
+  try {
+    values.innerText = eval(display);
+    display = "";
+  } catch {
+    alert("Something want wrong, Please enter valid inputs.");
+  }
 });
 
+// Clear entier values of Display
+CLR.addEventListener("click", () => {
+  try {
+    values.innerText = display = "";
+  } catch {
+    alert("Something want wrong, Please enter valid inputs.");
+  }
+});
 
+// Delete last input data.
+DEL.addEventListener("click", () => {
+  try {
+    values.innerText = display = display.slice(0, -1);
+  } catch {
+    alert("Something want wrong, Please enter valid inputs.");
+  }
+});
