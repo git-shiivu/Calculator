@@ -14,14 +14,14 @@ input.forEach((input) => {
     if (input.innerText == "x") {
       display.replace("x", "*");
     }
-    values.innerText = display;
+    values.value = display;
   });
 });
 
 // For Calculation.
 equalTo.addEventListener("click", () => {
   try {
-    values.innerText = eval(display);
+    values.value = eval(display);
     display = "";
   } catch {
     alert("Something want wrong, Please enter valid inputs.");
@@ -31,7 +31,7 @@ equalTo.addEventListener("click", () => {
 // Clear entier values of Display
 CLR.addEventListener("click", () => {
   try {
-    values.innerText = display = "";
+    values.value = display = "";
   } catch {
     alert("Something want wrong, Please enter valid inputs.");
   }
@@ -40,7 +40,7 @@ CLR.addEventListener("click", () => {
 // Delete last input data.
 DEL.addEventListener("click", () => {
   try {
-    values.innerText = display = display.slice(0, -1);
+    values.value = display = display.slice(0, -1);
   } catch {
     alert("Something want wrong, Please enter valid inputs.");
   }
