@@ -45,6 +45,9 @@
     border-radius: 5px;
     display: inline-block;
     flex-wrap: wrap;
+    .specialButtons{
+      margin-bottom: 5%;
+    }
     .buttons{
       width: 30%;
       margin: 1%;
